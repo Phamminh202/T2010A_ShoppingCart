@@ -3,7 +3,7 @@ package com.t2010a.t2010a_shoppingcart.entity;
 import java.time.LocalDateTime;
 
 public class Product {
-    private String id;
+    private int id;
     private String name;
     private double price;
     private String thumbnail;
@@ -14,21 +14,21 @@ public class Product {
     public Product() {
     }
 
-    public Product(String id,String name, double price) {
+    public Product(int id,String name, double price,String thumbnail) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.thumbnail = "test.png";
+        this.thumbnail = thumbnail;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
         this.status = 1;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

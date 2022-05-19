@@ -79,12 +79,6 @@ public class ShoppingCart implements ShoppingCartAction{
             CartItem cartItem = new CartItem(product.getId(), product.getName(),product.getThumbnail(),product.getPrice(),quantity);
             items.put(product.getId(),cartItem);
         }
-        ArrayList<CartItem> cartItemArrayList = new ArrayList<>(items.values());
-        for (CartItem cartItem :
-                cartItemArrayList){
-            System.out.println(cartItem.toString());
-        }
-
     }
 
     @Override

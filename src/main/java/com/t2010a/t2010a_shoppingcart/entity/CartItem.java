@@ -2,7 +2,7 @@ package com.t2010a.t2010a_shoppingcart.entity;
 
 
 public class CartItem {
-    private String productId;
+    private int productId;
     private String productName;
     private String productThumbnail;
     private double unitPrice;
@@ -11,7 +11,7 @@ public class CartItem {
     public CartItem() {
     }
 
-    public CartItem(String productId, String productName, String productThumbnail, double unitPrice, int quantity) {
+    public CartItem(int productId, String productName, String productThumbnail, double unitPrice, int quantity) {
         this.productId = productId;
         this.productName = productName;
         this.productThumbnail = productThumbnail;
@@ -19,11 +19,11 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public String getProductId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 

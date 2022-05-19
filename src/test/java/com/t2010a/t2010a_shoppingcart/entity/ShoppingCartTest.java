@@ -7,27 +7,26 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 class ShoppingCartTest {
     ShoppingCartAction shoppingCartAction;
     @Test
-    void add() throws IOException{
+    void add(int qty) throws IOException{
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream is = classLoader.getResourceAsStream("order-details.txt");
+        InputStream is = classLoader.getResourceAsStream("products.txt");
         InputStreamReader streamReader = new InputStreamReader(is, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(streamReader);
         for (String line; (line = reader.readLine())!= null; ){
             String[] sqlitedLine = line.split("\\|");
             if (sqlitedLine.length == 4){
-                String id = sqlitedLine[0].trim();
+                int id = Integer.parseInt(sqlitedLine[0].trim());
                 String name = sqlitedLine[1].trim();
-                int qty = Integer.parseInt(sqlitedLine[2].trim());
-                double price = Double.parseDouble(sqlitedLine[3].trim());
-                Product product = new Product(id,name,price);
+                double price = Double.parseDouble(sqlitedLine[2].trim());
+                String thumbnail = sqlitedLine[3];
+                Product product = new Product(id,name,price,thumbnail);
                 shoppingCartAction.add(product,qty);
             }
         }
+
     }
 }
